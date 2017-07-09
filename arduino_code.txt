@@ -1,0 +1,81 @@
+Coding for Hardware:- 
+Here we are using Arduino and Bluetooth module (HC-05) as a hardware. The code for Arduino is very simple. It checks for characters like “1”, “2”, etc. through the bluetooth serial module HC-05. Corresponding LEDs are then turned ON and OFF based on each command. This is the code:
+int state;
+int pin1=8;
+int pin2=9;
+int pin3=10;
+int pin4=11;
+int pin5=12;
+void setup(){
+pinMode(8, OUTPUT);
+pinMode(9, OUTPUT);
+pinMode(10, OUTPUT);
+pinMode(11, OUTPUT);
+pinMode(12, OUTPUT);
+Serial.begin(9600);
+}
+void loop(){
+if (Serial.available()>0)
+{
+state = Serial.read();
+if(state == '1')
+{
+digitalWrite(8, HIGH);
+delay(1000);
+state=0;
+}
+if(state == '2')
+{
+digitalWrite(9, HIGH);
+delay(1000);
+state=0;
+}
+if(state == '3')
+{
+digitalWrite(10, HIGH);
+delay(1000);
+state=0;
+}
+if(state == '4')
+{
+digitalWrite(11, HIGH);
+delay(1000);
+state=0;
+}
+if(state == '5')
+{
+digitalWrite(12, HIGH);
+delay(1000);
+state=0;
+}
+if(state == '6')
+{
+digitalWrite(8, LOW);
+delay(1000);
+state=0;
+}
+if(state == '7')
+{
+digitalWrite(9, LOW);
+delay(1000);
+state=0;
+}
+if(state == '8')
+{
+digitalWrite(10, LOW);
+delay(1000);
+state=0;
+}
+if(state == '9')
+{
+digitalWrite(11, LOW);
+delay(1000);
+state=0;
+}
+if(state == 'A')
+{
+digitalWrite(12, LOW);
+delay(1000);
+state=0;
+}
+}}
